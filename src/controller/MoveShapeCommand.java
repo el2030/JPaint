@@ -30,7 +30,7 @@ public class MoveShapeCommand implements IUndoable{
 	public void moveShape() {
 		
 		MoveShape move = new MoveShape(shape);
-		move.run();
+		move.execute();
 		paintCanvas.repaint();
 		CommandHistory.add(this);
 		
@@ -41,7 +41,7 @@ public class MoveShapeCommand implements IUndoable{
 	public void undo() {
 		
 		UndoMove undo = new UndoMove(shape);
-		undo.run();
+		undo.execute();
 		paintCanvas.repaint();
 		
 	}
@@ -50,7 +50,7 @@ public class MoveShapeCommand implements IUndoable{
 	public void redo() {
 		
 		RedoMove redo = new RedoMove(shape);
-		redo.run();
+		redo.execute();
 		paintCanvas.repaint();
 		
 		

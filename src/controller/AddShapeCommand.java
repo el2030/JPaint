@@ -5,9 +5,10 @@ import model.Shape;
 import model.ShapeBuilder;
 import model.StaticShapeList;
 import model.persistence.ApplicationState;
+import view.interfaces.ICommand;
 import view.interfaces.IUndoable;
 import view.interfaces.PaintCanvasBase;
-public class AddShapeCommand implements IUndoable {
+public class AddShapeCommand implements IUndoable, ICommand {
 
 	private Shape shape;
 	private PaintCanvasBase paintCanvas;
@@ -30,7 +31,8 @@ public class AddShapeCommand implements IUndoable {
 	}
 	
 
-	public void addShape() {
+	@Override
+	public void execute() {
 		
 		StaticShapeList.mainShapeList.add(shape);
 		paintCanvas.repaint();
@@ -47,7 +49,7 @@ public class AddShapeCommand implements IUndoable {
 		
 	}
 
-	@Override
+	
 	public void redo() {
 		
 		StaticShapeList.mainShapeList.add(shape);
@@ -55,5 +57,6 @@ public class AddShapeCommand implements IUndoable {
 		
 		
 	}
+
 	
 }

@@ -28,7 +28,7 @@ public class JPaintController implements IJPaintController {
         uiModule.addEvent(EventName.CHOOSE_MOUSE_MODE, () -> applicationState.setActiveStartAndEndPointMode());
         uiModule.addEvent(EventName.COPY, () -> CopyCommand.copy());
         uiModule.addEvent(EventName.PASTE, () -> new PasteCommand().execute());
-        uiModule.addEvent(EventName.DELETE, null);
+        uiModule.addEvent(EventName.DELETE, () -> new DeleteCommand().execute());
         uiModule.addEvent(EventName.GROUP, null);
         uiModule.addEvent(EventName.UNDO, () -> new UndoCommand().execute());
         uiModule.addEvent(EventName.REDO, () -> new RedoCommand().execute());

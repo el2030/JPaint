@@ -28,7 +28,7 @@ public class ShapeCommand {
 	public void createShapeCommand() {
 		
 		AddShapeCommand shape = new AddShapeCommand(pressed.getX(), pressed.getY(), released.getX(), released.getY(), appState, paintCanvas);
-		shape.addShape();
+		shape.execute();
 
 		
 	}

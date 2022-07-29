@@ -16,7 +16,7 @@ public class RedoMove implements IMoveCommand {
 	public RedoMove(Shape shape) {this.shape = shape;}
 	
 	@Override
-	public void run() {
+	public void execute() {
 		Calculator calculate = new Calculator(shape.startX, shape.endX, shape.startY, shape.endY);
 		for (Shape selectedshape: selectedshapes) {
 			//if (movedshapes.contains(selectedshape)) {
