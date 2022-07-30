@@ -13,6 +13,7 @@ public class MoveShapeCommand implements IUndoable{
 	private Shape shape;
 	private PaintCanvasBase paintCanvas;
 	ArrayList<Shape> selectedshapes = StaticShapeList.selectedShapeList.returnShapeList();
+	ArrayList<Shape> displaySelected = StaticShapeList.displaySelected.returnShapeList();
 	
 	
 		public MoveShapeCommand(int startX, int startY, int endX, int endY, PaintCanvasBase paintCanvas) {
@@ -29,8 +30,8 @@ public class MoveShapeCommand implements IUndoable{
 	
 	public void moveShape() {
 		
-		MoveShape move = new MoveShape(shape);
-		move.execute();
+		ShapeMovement.move(selectedshapes, shape);
+		ShapeMovement.move(displaySelected, shape);
 		paintCanvas.repaint();
 		CommandHistory.add(this);
 		
@@ -40,8 +41,8 @@ public class MoveShapeCommand implements IUndoable{
 	@Override
 	public void undo() {
 		
-		UndoMove undo = new UndoMove(shape);
-		undo.execute();
+		ShapeMovement.undoMove(selectedshapes, shape);
+		ShapeMovement.undoMove(displaySelected, shape);
 		paintCanvas.repaint();
 		
 	}
@@ -49,8 +50,8 @@ public class MoveShapeCommand implements IUndoable{
 	@Override
 	public void redo() {
 		
-		RedoMove redo = new RedoMove(shape);
-		redo.execute();
+		ShapeMovement.move(selectedshapes, shape);
+		ShapeMovement.move(displaySelected, shape);
 		paintCanvas.repaint();
 		
 		

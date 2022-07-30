@@ -12,6 +12,8 @@ public class StaticShapeList{
 	
 	public static ShapeList cloneList = new ShapeList();
 	
+	public static ShapeList displaySelected = new ShapeList();
+	
 //	public static ShapeList oldList = new ShapeList();
 	
 //	public void remove(Shape shape) {

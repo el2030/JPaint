@@ -20,10 +20,15 @@ public class PaintCanvas extends PaintCanvasBase {
     public void paint(Graphics g) {
         Graphics2D graphics2d = (Graphics2D)g;
         ArrayList<Shape> shapelist = StaticShapeList.mainShapeList.returnShapeList();
+        ArrayList<Shape> displayselected = StaticShapeList.displaySelected.returnShapeList();
         
         for (Shape shape: shapelist) {
         	shape.draw(graphics2d);
         	
+        }
+        
+        for (Shape shape: displayselected) {
+        	shape.draw(graphics2d);
         }
 
         // Draw all shapes here

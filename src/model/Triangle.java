@@ -1,8 +1,5 @@
 package model;
 
-import java.awt.Color;
-import java.awt.Graphics2D;
-
 import model.interfaces.IColorStrategy;
 import model.persistence.ApplicationState;
 import view.interfaces.PaintCanvasBase;
@@ -52,6 +49,15 @@ public class Triangle {
             graphics2d.setColor(color.getColor());
             graphics2d.drawPolygon(polygon);
         	break;
+        
+        case DASHED_LINE:
+        	color = activeSecondaryColor;
+        	graphics2d.setColor(color.getColor());
+        	float[] dash = {5.0f, 5.0f, 5.0f};
+            Stroke dashed = new BasicStroke(3.0f, BasicStroke.CAP_BUTT,
+                    BasicStroke.JOIN_MITER, 2.0f, dash, 10.0f);
+            graphics2d.setStroke(dashed);
+            graphics2d.drawPolygon(polygon);	
         	
         default:
         	break;
