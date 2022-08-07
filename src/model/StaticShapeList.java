@@ -1,5 +1,8 @@
 package model;
 
+import view.interfaces.IObserver;
+import view.interfaces.ISubject;
+
 public class StaticShapeList{
 
 	public static ShapeList mainShapeList = new ShapeList();
@@ -13,6 +16,8 @@ public class StaticShapeList{
 	public static ShapeList cloneList = new ShapeList();
 	
 	public static ShapeList displaySelected = new ShapeList();
+
+	
 	
 //	public static ShapeList oldList = new ShapeList();
 	

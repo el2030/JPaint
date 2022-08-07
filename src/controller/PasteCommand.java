@@ -1,11 +1,10 @@
 package controller;
 
 import java.util.ArrayList;
-import model.DrawHelper;
-
 import model.Shape;
 import model.ShapeList;
 import model.StaticShapeList;
+import view.gui.PaintCanvas;
 import view.interfaces.ICommand;
 import view.interfaces.IUndoable;
 
@@ -21,7 +20,7 @@ public class PasteCommand implements IUndoable, ICommand {
 			Shape shape = new Shape(copiedshape.startX + 30, copiedshape.startY + 30, copiedshape.endX + 30, copiedshape.endY + 30, copiedshape.activeShapeType, copiedshape.activePrimaryColor, copiedshape.activeSecondaryColor, copiedshape.activeShapeShadingType);
 			StaticShapeList.mainShapeList.add(shape);
 			clonelist.add(shape);
-			DrawHelper.returnPaint().repaint();
+			PaintCanvas.getInstance().repaint();
 			
 		
 		}
@@ -37,7 +36,7 @@ public class PasteCommand implements IUndoable, ICommand {
 			
 			StaticShapeList.mainShapeList.remove(clone);
 		}
-		DrawHelper.returnPaint().repaint();
+		PaintCanvas.getInstance().repaint();
 	}
 
 	@Override
@@ -47,7 +46,7 @@ public class PasteCommand implements IUndoable, ICommand {
 			
 			StaticShapeList.mainShapeList.add(clone);
 		}
-		DrawHelper.returnPaint().repaint();
+		PaintCanvas.getInstance().repaint();
 		
 	}
 

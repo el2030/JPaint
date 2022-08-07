@@ -5,13 +5,14 @@ import java.awt.Graphics2D;
 
 import model.interfaces.IColorStrategy;
 import model.persistence.ApplicationState;
+import view.interfaces.IDraw;
 import view.interfaces.PaintCanvasBase;
 
 import java.awt.*;
-public class Rectangle {
+public class Rectangle implements IDraw {
 
 	
-	
+	@Override
 	public void draw(int startX, int startY, int endX, int endY, ShapeShadingType activeShapeShadingType, ShapeColor activePrimaryColor, ShapeColor activeSecondaryColor, Graphics2D graphics2d) {
 		
 		Calculator c = new Calculator(startX, endX, startY ,endY);

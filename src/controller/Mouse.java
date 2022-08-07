@@ -3,11 +3,9 @@ package controller;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-import model.DrawHelper;
 import model.ShapeList;
 import model.StaticShapeList;
 import model.Collision;
-import model.DrawHelper;
 import model.Point;
 import model.Shape;
 import model.Calculator;
@@ -22,9 +20,6 @@ public class Mouse extends MouseAdapter {
 	private Point pReleased;
 	private ApplicationState appState;
 	PaintCanvasBase paintCanvas;
-	private int height;
-	private int width;
-	private ShapeList shapeList = new ShapeList();
 
 	public Mouse(PaintCanvasBase paintCanvas, ApplicationState appState) { //constructor
 		this.appState = appState;
@@ -47,26 +42,25 @@ public class Mouse extends MouseAdapter {
 		pReleased.setX(e.getX());
 		pReleased.setY(e.getY());
 		
-		DrawHelper.helper(paintCanvas);
-		ShapeCommand newShapeCmd = new ShapeCommand(pPressed, pReleased, appState, DrawHelper.returnPaint());
+		ShapeCommand newShapeCmd = new ShapeCommand(pPressed, pReleased, appState);
 		
 		switch(appState.getActiveMouseMode().toString()) {
 
 		case "MOVE":
-			newShapeCmd.moveCommand(); //this code won't be here, this is a part of the pattern that I am working on
+			newShapeCmd.moveCommand(); 
 			break;
 		
 		case "SELECT": 
-			newShapeCmd.SelectShapeCommand(); //currently moving, will be the command interface, ex. command = command.selected()
+			newShapeCmd.SelectShapeCommand(); 
 			break;
 			
 		case "DRAW":
-			newShapeCmd.createShapeCommand(); //same
+			newShapeCmd.createShapeCommand(); 
 			break;
 			
 		default: break;
 		}
-	//command.execute();
+
 	}
 	
 		

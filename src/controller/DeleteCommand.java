@@ -1,11 +1,10 @@
 package controller;
 
 import java.util.ArrayList;
-
-import model.DrawHelper;
 import model.Shape;
 import model.ShapeList;
 import model.StaticShapeList;
+import view.gui.PaintCanvas;
 import view.interfaces.ICommand;
 import view.interfaces.IUndoable;
 
@@ -20,8 +19,10 @@ public class DeleteCommand implements ICommand, IUndoable {
 		for (Shape shape: selectedshapes) {
 			shapelist.add(shape);
 			StaticShapeList.mainShapeList.remove(shape);
+			
 		}
-		DrawHelper.returnPaint().repaint();
+		selectedshapes.clear();
+		PaintCanvas.getInstance().repaint();
 		CommandHistory.add(this);
 		
 	}
@@ -31,8 +32,10 @@ public class DeleteCommand implements ICommand, IUndoable {
 		
 		for (Shape shape: shapelist.returnShapeList()) {
 			StaticShapeList.mainShapeList.add(shape);
+			selectedshapes.add(shape);
+			//StaticShapeList.selectedShapeList.add(shape);
 		}
-		DrawHelper.returnPaint().repaint();
+		PaintCanvas.getInstance().repaint();
 	}
 
 	@Override
@@ -40,8 +43,10 @@ public class DeleteCommand implements ICommand, IUndoable {
 		
 		for (Shape shape: shapelist.returnShapeList()) {
 			StaticShapeList.mainShapeList.remove(shape);
+			//StaticShapeList.selectedShapeList.remove(shape);
 		}
-		DrawHelper.returnPaint().repaint();
+		selectedshapes.clear();
+		PaintCanvas.getInstance().repaint();
 		
 	}
 

@@ -5,20 +5,21 @@ import java.util.ArrayList;
 import model.Shape;
 import model.ShapeBuilder;
 import model.StaticShapeList;
+import view.gui.PaintCanvas;
+import view.interfaces.ICommand;
 import view.interfaces.IUndoable;
 import view.interfaces.PaintCanvasBase;
 
-public class MoveShapeCommand implements IUndoable{
+public class MoveShapeCommand implements IUndoable, ICommand{
 
 	private Shape shape;
-	private PaintCanvasBase paintCanvas;
 	ArrayList<Shape> selectedshapes = StaticShapeList.selectedShapeList.returnShapeList();
 	ArrayList<Shape> displaySelected = StaticShapeList.displaySelected.returnShapeList();
 	
 	
-		public MoveShapeCommand(int startX, int startY, int endX, int endY, PaintCanvasBase paintCanvas) {
+		public MoveShapeCommand(int startX, int startY, int endX, int endY) {
 			
-			this.paintCanvas = paintCanvas;
+		
 			shape = new ShapeBuilder()
 				.setStartX(startX)
 				.setStartY(startY)
@@ -28,11 +29,11 @@ public class MoveShapeCommand implements IUndoable{
 	
 	}
 	
-	public void moveShape() {
+	public void execute() {
 		
 		ShapeMovement.move(selectedshapes, shape);
 		ShapeMovement.move(displaySelected, shape);
-		paintCanvas.repaint();
+		PaintCanvas.getInstance().repaint();
 		CommandHistory.add(this);
 		
 	}
@@ -43,7 +44,7 @@ public class MoveShapeCommand implements IUndoable{
 		
 		ShapeMovement.undoMove(selectedshapes, shape);
 		ShapeMovement.undoMove(displaySelected, shape);
-		paintCanvas.repaint();
+		PaintCanvas.getInstance().repaint();
 		
 	}
 
@@ -52,7 +53,7 @@ public class MoveShapeCommand implements IUndoable{
 		
 		ShapeMovement.move(selectedshapes, shape);
 		ShapeMovement.move(displaySelected, shape);
-		paintCanvas.repaint();
+		PaintCanvas.getInstance().repaint();
 		
 		
 	}}
