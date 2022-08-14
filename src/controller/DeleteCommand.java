@@ -6,17 +6,18 @@ import model.ShapeList;
 import model.StaticShapeList;
 import view.gui.PaintCanvas;
 import view.interfaces.ICommand;
+import view.interfaces.IShape;
 import view.interfaces.IUndoable;
 
 public class DeleteCommand implements ICommand, IUndoable {
 	
-	ArrayList<Shape> selectedshapes = StaticShapeList.selectedShapeList.returnShapeList();
+	ArrayList<IShape> selectedshapes = StaticShapeList.selectedShapeList.returnShapeList();
 	ShapeList shapelist;
 	
 	@Override
 	public void execute() {
 		shapelist = new ShapeList();
-		for (Shape shape: selectedshapes) {
+		for (IShape shape: selectedshapes) {
 			shapelist.add(shape);
 			StaticShapeList.mainShapeList.remove(shape);
 			
@@ -30,7 +31,7 @@ public class DeleteCommand implements ICommand, IUndoable {
 	@Override
 	public void undo() {
 		
-		for (Shape shape: shapelist.returnShapeList()) {
+		for (IShape shape: shapelist.returnShapeList()) {
 			StaticShapeList.mainShapeList.add(shape);
 			selectedshapes.add(shape);
 			//StaticShapeList.selectedShapeList.add(shape);
@@ -41,7 +42,7 @@ public class DeleteCommand implements ICommand, IUndoable {
 	@Override
 	public void redo() {
 		
-		for (Shape shape: shapelist.returnShapeList()) {
+		for (IShape shape: shapelist.returnShapeList()) {
 			StaticShapeList.mainShapeList.remove(shape);
 			//StaticShapeList.selectedShapeList.remove(shape);
 		}

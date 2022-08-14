@@ -1,5 +1,6 @@
 package view.gui;
 
+import view.interfaces.IShape;
 import view.interfaces.PaintCanvasBase;
 import model.Shape;
 import model.ShapeList;
@@ -24,17 +25,17 @@ public class PaintCanvas extends PaintCanvasBase {
     @Override
     public void paint(Graphics g) {
         Graphics2D graphics2d = (Graphics2D)g;
-        ArrayList<Shape> shapelist = StaticShapeList.mainShapeList.returnShapeList();
-        ArrayList<Shape> displayselected = StaticShapeList.displaySelected.returnShapeList();
-        ArrayList<Shape> selectedshapelist = StaticShapeList.selectedShapeList.returnShapeList();
+        ArrayList<IShape> shapelist = StaticShapeList.mainShapeList.returnShapeList();
+        ArrayList<IShape> displayselected = StaticShapeList.displaySelected.returnShapeList();
+        ArrayList<IShape> selectedshapelist = StaticShapeList.selectedShapeList.returnShapeList();
         
-        for (Shape shape: shapelist) {
+        for (IShape shape: shapelist) {
         	shape.draw(graphics2d);
         	
         }
         
         if (!selectedshapelist.isEmpty()){
-	        for (Shape shape: displayselected) {
+	        for (IShape shape: displayselected) {
 	        	shape.draw(graphics2d);
 	        }
         }

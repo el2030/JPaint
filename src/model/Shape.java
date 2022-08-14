@@ -46,6 +46,78 @@ public class Shape implements IShape {
 		}
 		
 	}
+
+	@Override
+	public int getStartX() {
+		// TODO Auto-generated method stub
+		return startX;
+	}
+
+	@Override
+	public int getEndX() {
+		// TODO Auto-generated method stub
+		return endX;
+	}
+
+	@Override
+	public int getStartY() {
+		// TODO Auto-generated method stub
+		return startY;
+	}
+
+	@Override
+	public int getEndY() {
+		// TODO Auto-generated method stub
+		return endY;
+	}
+
+	@Override
+	public ShapeType getActiveShapeType() {
+		return activeShapeType;
+		
+	}
+
+	@Override
+	public ShapeColor getActivePrimaryColor() {
+		// TODO Auto-generated method stub
+		return activePrimaryColor;
+	}
+
+	@Override
+	public ShapeColor getActiveSecondaryColor() {
+		// TODO Auto-generated method stub
+		return activeSecondaryColor;
+	}
+
+	@Override
+	public ShapeShadingType getActiveShapeShadingType() {
+		// TODO Auto-generated method stub
+		return activeShapeShadingType;
+	}
+
+	@Override
+	public void setStartX(int startX) {
+		// TODO Auto-generated method stub
+		this.startX = startX;
+	}
+
+	@Override
+	public void setStartY(int startY) {
+		// TODO Auto-generated method stub
+		this.startY = startY;
+	}
+
+	@Override
+	public void setEndX(int endX) {
+		// TODO Auto-generated method stub
+		this.endX = endX;
+	}
+
+	@Override
+	public void setEndY(int endY) {
+		// TODO Auto-generated method stub
+		this.endY = endY;
+	}
 	
 	
 	

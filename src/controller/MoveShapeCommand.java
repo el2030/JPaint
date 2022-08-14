@@ -7,14 +7,15 @@ import model.ShapeBuilder;
 import model.StaticShapeList;
 import view.gui.PaintCanvas;
 import view.interfaces.ICommand;
+import view.interfaces.IShape;
 import view.interfaces.IUndoable;
 import view.interfaces.PaintCanvasBase;
 
 public class MoveShapeCommand implements IUndoable, ICommand{
 
 	private Shape shape;
-	ArrayList<Shape> selectedshapes = StaticShapeList.selectedShapeList.returnShapeList();
-	ArrayList<Shape> displaySelected = StaticShapeList.displaySelected.returnShapeList();
+	ArrayList<IShape> selectedshapes = StaticShapeList.selectedShapeList.returnShapeList();
+	ArrayList<IShape> displaySelected = StaticShapeList.displaySelected.returnShapeList();
 	
 	
 		public MoveShapeCommand(int startX, int startY, int endX, int endY) {

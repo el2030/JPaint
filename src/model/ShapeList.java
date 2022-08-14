@@ -7,11 +7,11 @@ import view.interfaces.IShape;
 public class ShapeList {
 
 
-	private ArrayList<Shape> shapelist = new ArrayList<>();
+	private ArrayList<IShape> shapelist = new ArrayList<>();
 	
 	
 	
-	public void add(Shape shape) {
+	public void add(IShape shape) {
 		
 		shapelist.add(shape);
 		System.out.println("shape added");
@@ -27,12 +27,12 @@ public class ShapeList {
 		return count;
 	}
 	
-	public ArrayList<Shape> returnShapeList(){
+	public ArrayList<IShape> returnShapeList(){
 		
 		return shapelist;
 	}
 	
-	public void remove(Shape shape) {
+	public void remove(IShape shape) {
 		
 		shapelist.remove(shape);
 		System.out.println("shape removed");

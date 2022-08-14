@@ -5,30 +5,30 @@ import java.util.ArrayList;
 import model.Calculator;
 import model.Shape;
 import model.ShapeList;
+import view.interfaces.IShape;
 
 public class ShapeMovement {
 	
-	public static void move(ArrayList<Shape> shapelist, Shape shape) {
+	public static void move(ArrayList<IShape> selectedshapes, Shape shape) {
 		
 		Calculator calculate = new Calculator(shape.startX, shape.endX, shape.startY, shape.endY);
-		for (Shape selectedshape: shapelist) {
-			selectedshape.startX += calculate.deltaX();
-			selectedshape.startY += calculate.deltaY();
-			selectedshape.endX += calculate.deltaX();
-			selectedshape.endY += calculate.deltaY();
+		for (IShape selectedshape: selectedshapes) {
+			selectedshape.setStartX(selectedshape.getStartX() + calculate.deltaX());
+			selectedshape.setStartY(selectedshape.getStartY() + calculate.deltaY());
+			selectedshape.setEndX(selectedshape.getEndX() + calculate.deltaX());
+			selectedshape.setEndY(selectedshape.getEndY() + calculate.deltaY());
 
 		}
 	}
 	
-	public static void undoMove(ArrayList<Shape> shapelist, Shape shape) {
+	public static void undoMove(ArrayList<IShape> selectedshapes, Shape shape) {
 		
 		Calculator calculate = new Calculator(shape.startX, shape.endX, shape.startY, shape.endY);
-		for (Shape selectedshape: shapelist) {
-			selectedshape.startX -= calculate.deltaX();
-			selectedshape.startY -= calculate.deltaY();
-			selectedshape.endX -= calculate.deltaX();
-			selectedshape.endY -= calculate.deltaY();
-
+		for (IShape selectedshape: selectedshapes) {
+			selectedshape.setStartX(selectedshape.getStartX() - calculate.deltaX());
+			selectedshape.setStartY(selectedshape.getStartY() - calculate.deltaY());
+			selectedshape.setEndX(selectedshape.getEndX() - calculate.deltaX());
+			selectedshape.setEndY(selectedshape.getEndY() - calculate.deltaY());
 		}
 	}
 

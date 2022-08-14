@@ -13,14 +13,15 @@ import model.StaticShapeList;
 import view.gui.PaintCanvas;
 import view.interfaces.ICommand;
 import view.interfaces.IObserver;
+import view.interfaces.IShape;
 import view.interfaces.ISubject;
 
 
 
 public class SelectShapeCommand implements ISubject, ICommand {
 
-	ArrayList<Shape> shapelist = StaticShapeList.mainShapeList.returnShapeList();
-	ArrayList<Shape> selectlist = StaticShapeList.selectedShapeList.returnShapeList();
+	ArrayList<IShape> shapelist = StaticShapeList.mainShapeList.returnShapeList();
+	ArrayList<IShape> selectlist = StaticShapeList.selectedShapeList.returnShapeList();
 	private final List<IObserver> observer = new ArrayList<>();
 	private Shape shape;
 	
@@ -42,7 +43,7 @@ public class SelectShapeCommand implements ISubject, ICommand {
 		//PaintCanvas.getInstance().clear();
 		//PaintCanvas.getInstance().repaint();
 		
-		for (Shape shapeInMain: shapelist) {
+		for (IShape shapeInMain: shapelist) {
         	if (Collision.detected(shapeInMain, shape)) {
         		StaticShapeList.selectedShapeList.add(shapeInMain);
         		displaySelectedShape(shapeInMain);
@@ -75,8 +76,8 @@ public class SelectShapeCommand implements ISubject, ICommand {
         
 	}
 	
-	private void displaySelectedShape(Shape shape) {
-		Shape newshape = new Shape(shape.startX -5, shape.startY - 5, shape.endX + 5, shape.endY + 5, shape.activeShapeType, ShapeColor.BLACK, ShapeColor.BLACK, ShapeShadingType.DASHED_LINE);
+	private void displaySelectedShape(IShape shapeInMain) {
+		Shape newshape = new Shape(shapeInMain.getStartX() -5, shapeInMain.getStartY() - 5, shapeInMain.getEndX() + 5, shapeInMain.getEndY() + 5, shapeInMain.getActiveShapeType(), ShapeColor.BLACK, ShapeColor.BLACK, ShapeShadingType.DASHED_LINE);
 		StaticShapeList.displaySelected.add(newshape);
 		PaintCanvas.getInstance().repaint();
 		
