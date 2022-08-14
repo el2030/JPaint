@@ -3,6 +3,7 @@ package controller;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 
+import model.GroupShapes;
 import model.Shape;
 import model.StaticShapeList;
 import view.interfaces.ICommand;
@@ -12,7 +13,8 @@ public class GroupShapesCommand implements IUndoable, ICommand {
 	
 	@Override
 	public void execute() {
-		// TODO Auto-generated method stub
+		new GroupShapes().group();
+		CommandHistory.add(this);
 		
 	}
 

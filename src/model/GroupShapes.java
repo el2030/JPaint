@@ -141,19 +141,19 @@ public class GroupShapes implements IShape {
 	@Override
 	public ShapeColor getActiveSecondaryColor() {
 		// TODO Auto-generated method stub
-		return null;
+		return ShapeColor.WHITE;
 	}
 
 	@Override
 	public ShapeShadingType getActiveShapeShadingType() {
 		// TODO Auto-generated method stub
-		return null;
+		return ShapeShadingType.DASHED_LINE;
 	}
 
 	@Override
 	public ShapeColor getActivePrimaryColor() {
 		// TODO Auto-generated method stub
-		return null;
+		return ShapeColor.WHITE;
 	}
 
 	@Override
@@ -168,6 +168,7 @@ public class GroupShapes implements IShape {
 		for (IShape shape: groupshapelist) {
 			shape.setStartX(shape.getStartX() + startX - this.startX);
 		}
+		this.startX = startX;
 		
 	}
 
@@ -177,7 +178,7 @@ public class GroupShapes implements IShape {
 			shape.setStartY(shape.getStartY() + startY - this.startY);
 		}
 //		this.setStartY(startY);
-		
+		this.startY = startY;
 	}
 
 	@Override
@@ -186,6 +187,7 @@ public class GroupShapes implements IShape {
 			shape.setEndX(shape.getEndX() + endX - this.endX);
 		}
 //		this.setEndX(endX);
+		this.endX = endX;
 		
 	}
 
@@ -195,6 +197,28 @@ public class GroupShapes implements IShape {
 			shape.setEndY(shape.getEndY() + endY - this.endY);
 		}
 //		this.setEndY(endY);
+		this.endY = endY;
+	}
+
+	@Override
+	public IShape pasteShape() {
+		GroupShapes newgroup = new GroupShapes();
+		newgroup.setStartX(startX + 30);
+		newgroup.setStartY(startY + 30);
+		newgroup.setEndX(endX + 30);
+		newgroup.setEndY(endY + 30);
+		for (IShape groupedshape: groupshapelist) {
+			IShape shape = groupedshape.pasteShape();
+			newgroup.addShape(shape);
+		}
+//		for (IShape shape: newgroup.groupshapelist) {
+//			shape.setStartX(shape.getStartX() + 30);
+//			shape.setStartY(shape.getStartY() + 30);
+//			shape.setEndX(shape.getEndX() + 30);
+//			shape.setEndY(shape.getEndY() + 30);
+//		}
+		
+		return newgroup;
 	}
 
 }

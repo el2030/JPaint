@@ -28,5 +28,7 @@ public interface IShape {
 	void setEndX(int endX);
 	void setEndY(int endY);
 	
+	IShape pasteShape();
+	
 	
 }

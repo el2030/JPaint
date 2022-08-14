@@ -18,7 +18,7 @@ public class PasteCommand implements IUndoable, ICommand {
 	public void execute() {
 	for (IShape copiedshape: copiedshapes) {
 			
-			IShape shape = new Shape(copiedshape.getStartX() + 30, copiedshape.getStartY() + 30, copiedshape.getEndX() + 30, copiedshape.getEndY() + 30, copiedshape.getActiveShapeType(), copiedshape.getActivePrimaryColor(), copiedshape.getActiveSecondaryColor(), copiedshape.getActiveShapeShadingType());
+			IShape shape = copiedshape.pasteShape();
 			StaticShapeList.mainShapeList.add(shape);
 			clonelist.add(shape);
 			PaintCanvas.getInstance().repaint();

@@ -134,4 +134,11 @@ public class Selection implements IShape {
 		
 	}
 
+
+	@Override
+	public IShape pasteShape() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

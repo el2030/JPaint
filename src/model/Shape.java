@@ -118,6 +118,12 @@ public class Shape implements IShape {
 		// TODO Auto-generated method stub
 		this.endY = endY;
 	}
+
+	@Override
+	public IShape pasteShape() {
+		IShape shape = new Shape(this.getStartX() + 30, this.getStartY() + 30, this.getEndX() + 30, this.getEndY() + 30, this.getActiveShapeType(), this.getActivePrimaryColor(), this.getActiveSecondaryColor(), this.getActiveShapeShadingType());
+		return shape;
+	}
 	
 	
 	
