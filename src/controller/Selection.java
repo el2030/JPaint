@@ -16,10 +16,10 @@ import view.gui.PaintCanvas;
 import view.interfaces.IShape;
 
 public class Selection implements IShape {
-	private final Shape shape;
+	private final IShape shape;
 	//Graphics2D graphics2d = PaintCanvas.getInstance().getGraphics2D();
 	
-	public Selection(Shape shape) {
+	public Selection(IShape shape) {
 		this.shape = shape;
 	}
 	
@@ -30,7 +30,7 @@ public class Selection implements IShape {
 	    int width = c.width();
 		int height = c.height();
 		
-		switch(shape.activeShapeType.toString()) {
+		switch(shape.getActiveShapeType().toString()) {
 		case "RECTANGLE":
         	float[] dash = {5.0f, 5.0f, 5.0f};
             Stroke dashed = new BasicStroke(3.0f, BasicStroke.CAP_BUTT,

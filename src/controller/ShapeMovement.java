@@ -21,7 +21,7 @@ public class ShapeMovement {
 		}
 	}
 	
-	public static void undoMove(ArrayList<IShape> selectedshapes, Shape shape) {
+	public static void undoMove(ArrayList<IShape> selectedshapes, IShape shape) {
 		
 		Calculator calculate = new Calculator(shape.startX, shape.endX, shape.startY, shape.endY);
 		for (IShape selectedshape: selectedshapes) {

@@ -9,13 +9,15 @@ import view.gui.PaintCanvas;
 import view.interfaces.IShape;
 
 public class GroupShapes implements IShape {
-	int startX = 0;
+	int startX;
 	int startY;
 	int endX;
 	int endY;
-	//private final Shape shape;
+	//private IShape ishape;
 	private ArrayList<IShape> groupshapelist = new ArrayList<>();
 	ArrayList<IShape> selectlist = StaticShapeList.selectedShapeList.returnShapeList();
+	ArrayList<IShape> mainShapeList = StaticShapeList.mainShapeList.returnShapeList();
+	
 	
 	public GroupShapes(){
 		groupshapelist = new ArrayList<>();
@@ -34,16 +36,22 @@ public class GroupShapes implements IShape {
 	public void group() {
 		for (IShape shape: selectlist) {
 			this.addShape(shape);
+			mainShapeList.remove(shape);
 			System.out.println("group added");
 			System.out.println(this.shapeCount());
 		}
+		this.getMinMax();
+		
 		selectlist.clear();
-		//selectlist.add(this);
+		selectlist.add(this);
+		mainShapeList.add(this);
 		this.draw(PaintCanvas.getInstance().getGraphics2D());
 	}
 	
 	public void unGroup() {
-		for (IShape shape: selectlist) {
+		for (IShape shape: groupshapelist) {
+			selectlist.remove(this);
+			selectlist.add(shape);
 			this.removeShape(shape);
 			System.out.println("group removed");
 			System.out.println(this.shapeCount());
@@ -86,17 +94,23 @@ public class GroupShapes implements IShape {
 	
 	@Override
 	public void draw(Graphics2D graphics2d) {
-		this.getMinMax();
-		Calculator c = new Calculator(this.startX-5, this.endX+5, this.startY-5 ,this.endY+5);
-	    int width = c.width();
-		int height = c.height();
-    	//graphics2d.setColor(BLACK);
+		for (IShape shape: groupshapelist) {
+			shape.draw(graphics2d);
+			//System.out.println("group removed");
+			//System.out.println(this.shapeCount());
+		}
 		
-    	float[] dash = {5.0f, 5.0f, 5.0f};
-        Stroke dashed = new BasicStroke(3.0f, BasicStroke.CAP_BUTT,
-                BasicStroke.JOIN_MITER, 2.0f, dash, 10.0f);
-        graphics2d.setStroke(dashed);
-        graphics2d.drawRect(c.startX(), c.startY(), width, height);
+//		this.getMinMax();
+//		Calculator c = new Calculator(this.startX-5, this.endX+5, this.startY-5 ,this.endY+5);
+//	    int width = c.width();
+//		int height = c.height();
+//    	//graphics2d.setColor(BLACK);
+//		
+//    	float[] dash = {5.0f, 5.0f, 5.0f};
+//        Stroke dashed = new BasicStroke(3.0f, BasicStroke.CAP_BUTT,
+//                BasicStroke.JOIN_MITER, 2.0f, dash, 10.0f);
+//        graphics2d.setStroke(dashed);
+//        graphics2d.drawRect(c.startX(), c.startY(), width, height);
 		
 	}
 
@@ -145,31 +159,42 @@ public class GroupShapes implements IShape {
 	@Override
 	public ShapeType getActiveShapeType() {
 		// TODO Auto-generated method stub
-		return null;
+		return ShapeType.RECTANGLE;
 	}
 
 	@Override
 	public void setStartX(int startX) {
-		// TODO Auto-generated method stub
+		//this.setStartX(startX);
+		for (IShape shape: groupshapelist) {
+			shape.setStartX(shape.getStartX() + startX - this.startX);
+		}
 		
 	}
 
 	@Override
 	public void setStartY(int startY) {
-		// TODO Auto-generated method stub
+		for (IShape shape: groupshapelist) {
+			shape.setStartY(shape.getStartY() + startY - this.startY);
+		}
+//		this.setStartY(startY);
 		
 	}
 
 	@Override
 	public void setEndX(int endX) {
-		// TODO Auto-generated method stub
+		for (IShape shape: groupshapelist) {
+			shape.setEndX(shape.getEndX() + endX - this.endX);
+		}
+//		this.setEndX(endX);
 		
 	}
 
 	@Override
 	public void setEndY(int endY) {
-		// TODO Auto-generated method stub
-		
+		for (IShape shape: groupshapelist) {
+			shape.setEndY(shape.getEndY() + endY - this.endY);
+		}
+//		this.setEndY(endY);
 	}
 
 }
