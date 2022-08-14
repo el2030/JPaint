@@ -30,7 +30,7 @@ public class DrawOutline implements IDraw {
 		int height = c.height();
 		IColorStrategy color = null; 
       
-        switch(activeShapeShadingType) { //shade rectangle depending on the current shadingType
+        switch(activeShapeShadingType) {
         
         case DASHED_LINE:
         	color = activeSecondaryColor;

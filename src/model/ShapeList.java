@@ -21,7 +21,7 @@ public class ShapeList {
 	
 	public int shapeCount() {
 		int count = 0;
-		for (Shape shape: shapelist) {
+		for (IShape shape: shapelist) {
 			count++;
 		}
 		return count;

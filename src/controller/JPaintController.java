@@ -1,6 +1,7 @@
 package controller;
 
 import view.interfaces.ICommand;
+import model.GroupShapes;
 import model.interfaces.IApplicationState;
 import view.EventName;
 import view.interfaces.IEventCallback;
@@ -29,7 +30,7 @@ public class JPaintController implements IJPaintController {
         uiModule.addEvent(EventName.COPY, () -> CopyCommand.copy());
         uiModule.addEvent(EventName.PASTE, () -> new PasteCommand().execute());
         uiModule.addEvent(EventName.DELETE, () -> new DeleteCommand().execute());
-        uiModule.addEvent(EventName.GROUP, null);
+        uiModule.addEvent(EventName.GROUP, () -> new GroupShapes().group());
         uiModule.addEvent(EventName.UNDO, () -> new UndoCommand().execute());
         uiModule.addEvent(EventName.REDO, () -> new RedoCommand().execute());
     }
