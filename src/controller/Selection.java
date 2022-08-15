@@ -141,4 +141,11 @@ public class Selection implements IShape {
 		return null;
 	}
 
+
+	@Override
+	public void unGroup() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

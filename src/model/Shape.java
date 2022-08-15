@@ -1,6 +1,7 @@
 package model;
 
 import java.awt.Graphics2D;
+import java.util.ArrayList;
 
 import model.persistence.ApplicationState;
 import view.interfaces.IShape;
@@ -15,6 +16,7 @@ public class Shape implements IShape {
     public ShapeColor activePrimaryColor;
     public ShapeColor activeSecondaryColor;
     public ShapeShadingType activeShapeShadingType;
+    
     
     public Shape (int startX, int startY, int endX, int endY, ShapeType activeShapeType, ShapeColor activePrimaryColor, ShapeColor activeSecondaryColor, ShapeShadingType activeShapeShadingType) {
     	
@@ -123,6 +125,22 @@ public class Shape implements IShape {
 	public IShape pasteShape() {
 		IShape shape = new Shape(this.getStartX() + 30, this.getStartY() + 30, this.getEndX() + 30, this.getEndY() + 30, this.getActiveShapeType(), this.getActivePrimaryColor(), this.getActiveSecondaryColor(), this.getActiveShapeShadingType());
 		return shape;
+	}
+
+	@Override
+	public void unGroup() {
+//		ArrayList<IShape> selectlist = StaticShapeList.selectedShapeList.returnShapeList();
+//		ArrayList<IShape> mainShapeList = StaticShapeList.mainShapeList.returnShapeList();
+//		if (!selectlist.contains(this)) {
+//			selectlist.add(this);
+//		}
+//		if (!mainShapeList.contains(this)) {
+//			mainShapeList.add(this);
+//		}
+//		StaticShapeList.selectedShapeList.add(this);
+//		StaticShapeList.mainShapeList.add(this);
+//		StaticShapeList.unGroupShapeList.add(this);
+		System.out.println("Nothing to ungroup");
 	}
 	
 	

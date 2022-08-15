@@ -16,6 +16,10 @@ public class StaticShapeList{
 	public static ShapeList cloneList = new ShapeList();
 	
 	public static ShapeList displaySelected = new ShapeList();
+	
+	public static ShapeList groupShapeList = new ShapeList();
+	
+	public static ShapeList unGroupShapeList = new ShapeList();
 
 	
 	

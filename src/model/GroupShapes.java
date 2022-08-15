@@ -5,6 +5,7 @@ import java.awt.Graphics2D;
 import java.awt.Stroke;
 import java.util.ArrayList;
 
+import controller.DeleteCommand;
 import view.gui.PaintCanvas;
 import view.interfaces.IShape;
 
@@ -37,27 +38,30 @@ public class GroupShapes implements IShape {
 		for (IShape shape: selectlist) {
 			this.addShape(shape);
 			mainShapeList.remove(shape);
-			System.out.println("group added");
-			System.out.println(this.shapeCount());
 		}
 		this.getMinMax();
 		
-		selectlist.clear();
-		selectlist.add(this);
+		//selectlist.clear();
+		//selectlist.add(this);
 		mainShapeList.add(this);
-		this.draw(PaintCanvas.getInstance().getGraphics2D());
+		StaticShapeList.groupShapeList.add(this);
+		//this.draw(PaintCanvas.getInstance().getGraphics2D());
+		PaintCanvas.getInstance().repaint();
 	}
 	
+	@Override
 	public void unGroup() {
-		for (IShape shape: groupshapelist) {
-			selectlist.remove(this);
-			selectlist.add(shape);
-			this.removeShape(shape);
-			System.out.println("group removed");
-			System.out.println(this.shapeCount());
-		}
+		//selectlist.clear();
 		
-		this.draw(PaintCanvas.getInstance().getGraphics2D());
+		for (IShape shape: groupshapelist) {
+			//shape.unGroup();
+			mainShapeList.add(shape);
+			//selectlist.add(shape);
+		}
+		mainShapeList.remove(this);	
+		//StaticShapeList.groupShapeList.remove(this);
+		PaintCanvas.getInstance().repaint();
+		//this.draw(PaintCanvas.getInstance().getGraphics2D());
 	}
 	
 	private ArrayList<IShape> returnShapeList() {
@@ -211,13 +215,8 @@ public class GroupShapes implements IShape {
 			IShape shape = groupedshape.pasteShape();
 			newgroup.addShape(shape);
 		}
-//		for (IShape shape: newgroup.groupshapelist) {
-//			shape.setStartX(shape.getStartX() + 30);
-//			shape.setStartY(shape.getStartY() + 30);
-//			shape.setEndX(shape.getEndX() + 30);
-//			shape.setEndY(shape.getEndY() + 30);
-//		}
-		
+
+		StaticShapeList.groupShapeList.add(newgroup);
 		return newgroup;
 	}
 

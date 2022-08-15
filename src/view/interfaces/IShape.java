@@ -16,6 +16,7 @@ public interface IShape {
 	ShapeShadingType getActiveShapeShadingType();
 	ShapeColor getActivePrimaryColor();
 	ShapeType getActiveShapeType();
+	void unGroup();
 	void draw(Graphics2D graphics2d);
 	
 	int getStartX();

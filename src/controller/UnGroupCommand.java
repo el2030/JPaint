@@ -1,50 +1,50 @@
 package controller;
 
-import java.awt.Graphics2D;
 import java.util.ArrayList;
 
 import model.GroupShapes;
-import model.Shape;
 import model.StaticShapeList;
 import view.interfaces.ICommand;
 import view.interfaces.IShape;
 import view.interfaces.IUndoable;
 
-public class GroupShapesCommand implements IUndoable, ICommand {
-	
+public class UnGroupCommand implements IUndoable, ICommand {
+
 	ArrayList<IShape> selectlist = StaticShapeList.selectedShapeList.returnShapeList();
-	ArrayList<IShape> mainlist = StaticShapeList.mainShapeList.returnShapeList();
 	ArrayList<IShape> groupshapelist = StaticShapeList.groupShapeList.returnShapeList();
 	
-	
+
 	@Override
 	public void execute() {
-		new GroupShapes().group();
+		StaticShapeList.unGroupShapeList.clear();
+		for (IShape groupshape: selectlist) {
+			StaticShapeList.unGroupShapeList.add(groupshape);
+			groupshape.unGroup();	
+		}
 		CommandHistory.add(this);
-		
 	}
-
 
 	@Override
 	public void undo() {
+		selectlist.clear();
+		for (IShape ungrouped: StaticShapeList.unGroupShapeList.returnShapeList()) {
+			selectlist.add(ungrouped);
+			//StaticShapeList.mainShapeList.remove(ungrouped);
+		}
+		new GroupShapes().group();
+		
+	}
+
+	@Override
+	public void redo() {
 		StaticShapeList.unGroupShapeList.clear();
 		for (IShape groupshape: selectlist) {
 			StaticShapeList.unGroupShapeList.add(groupshape);
 			groupshape.unGroup();	
 		}
 		
-	}
-
-
-	@Override
-	public void redo() {
-		selectlist.clear();
-		for (IShape ungrouped: StaticShapeList.unGroupShapeList.returnShapeList()) {
-			//mainlist.remove(ungrouped);
-			selectlist.add(ungrouped);
-		}
-		new GroupShapes().group();
 		
 	}
-
+	
+	
 }
