@@ -14,7 +14,6 @@ public class CopyCommand {
 		StaticShapeList.clipBoard.clear();
 		ArrayList<IShape> selectedshapes = StaticShapeList.selectedShapeList.returnShapeList();
 		for (IShape selectedshape: selectedshapes) {
-			//Shape shape = selectedshape;
 			StaticShapeList.clipBoard.add(selectedshape);
 		}
 	}

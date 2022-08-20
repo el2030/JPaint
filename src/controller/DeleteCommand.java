@@ -34,7 +34,7 @@ public class DeleteCommand implements ICommand, IUndoable {
 		for (IShape shape: shapelist.returnShapeList()) {
 			StaticShapeList.mainShapeList.add(shape);
 			selectedshapes.add(shape);
-			//StaticShapeList.selectedShapeList.add(shape);
+		
 		}
 		PaintCanvas.getInstance().repaint();
 	}
@@ -44,7 +44,7 @@ public class DeleteCommand implements ICommand, IUndoable {
 		
 		for (IShape shape: shapelist.returnShapeList()) {
 			StaticShapeList.mainShapeList.remove(shape);
-			//StaticShapeList.selectedShapeList.remove(shape);
+	
 		}
 		selectedshapes.clear();
 		PaintCanvas.getInstance().repaint();

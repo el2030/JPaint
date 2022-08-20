@@ -15,9 +15,7 @@ public class ShapeBuilder implements IBuilder {
     private ShapeColor activePrimaryColor;
     private ShapeColor activeSecondaryColor;
     private ShapeShadingType activeShapeShadingType;
-    //private MouseMode activeMouseMode;
 	ApplicationState appState;
-	PaintCanvasBase paintCanvas;
 	
 	public ShapeBuilder setStartX (int startX) {
 		this.startX = startX;

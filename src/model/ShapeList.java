@@ -14,8 +14,6 @@ public class ShapeList {
 	public void add(IShape shape) {
 		
 		shapelist.add(shape);
-		System.out.println("shape added");
-		System.out.println(shapeCount());
 		
 	}
 	

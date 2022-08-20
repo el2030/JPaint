@@ -1,10 +1,8 @@
 package controller;
 
 import model.Point;
-import model.ShapeFactory;
 import model.persistence.ApplicationState;
 import view.interfaces.ICommand;
-import view.interfaces.PaintCanvasBase;
 
 
 public class ShapeCommand {

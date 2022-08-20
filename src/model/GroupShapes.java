@@ -14,7 +14,7 @@ public class GroupShapes implements IShape {
 	int startY;
 	int endX;
 	int endY;
-	//private IShape ishape;
+
 	private ArrayList<IShape> groupshapelist = new ArrayList<>();
 	ArrayList<IShape> selectlist = StaticShapeList.selectedShapeList.returnShapeList();
 	ArrayList<IShape> mainShapeList = StaticShapeList.mainShapeList.returnShapeList();
@@ -22,7 +22,6 @@ public class GroupShapes implements IShape {
 	
 	public GroupShapes(){
 		groupshapelist = new ArrayList<>();
-		//this.shape = shape;
  
     }
 	
@@ -98,77 +97,69 @@ public class GroupShapes implements IShape {
 	
 	@Override
 	public void draw(Graphics2D graphics2d) {
+		
 		for (IShape shape: groupshapelist) {
 			shape.draw(graphics2d);
-			//System.out.println("group removed");
-			//System.out.println(this.shapeCount());
-		}
+	
 		
-//		this.getMinMax();
-//		Calculator c = new Calculator(this.startX-5, this.endX+5, this.startY-5 ,this.endY+5);
-//	    int width = c.width();
-//		int height = c.height();
-//    	//graphics2d.setColor(BLACK);
-//		
-//    	float[] dash = {5.0f, 5.0f, 5.0f};
-//        Stroke dashed = new BasicStroke(3.0f, BasicStroke.CAP_BUTT,
-//                BasicStroke.JOIN_MITER, 2.0f, dash, 10.0f);
-//        graphics2d.setStroke(dashed);
-//        graphics2d.drawRect(c.startX(), c.startY(), width, height);
+		}
 		
 	}
 
 	@Override
 	public int getStartX() {
-		// TODO Auto-generated method stub
+
 		return startX;
 	}
 
 	@Override
 	public int getEndX() {
-		// TODO Auto-generated method stub
+
 		return endX;
 	}
 
 	@Override
 	public int getStartY() {
-		// TODO Auto-generated method stub
+
 		return startY;
 	}
 
 	@Override
 	public int getEndY() {
-		// TODO Auto-generated method stub
+
 		return endY;
 	}
 
 	@Override
 	public ShapeColor getActiveSecondaryColor() {
-		// TODO Auto-generated method stub
+
 		return ShapeColor.WHITE;
+	
 	}
 
 	@Override
 	public ShapeShadingType getActiveShapeShadingType() {
-		// TODO Auto-generated method stub
+		
 		return ShapeShadingType.DASHED_LINE;
 	}
 
 	@Override
 	public ShapeColor getActivePrimaryColor() {
-		// TODO Auto-generated method stub
-		return ShapeColor.WHITE;
+		
+
+		return null;
 	}
 
 	@Override
 	public ShapeType getActiveShapeType() {
-		// TODO Auto-generated method stub
+
 		return ShapeType.RECTANGLE;
+	
 	}
 
 	@Override
 	public void setStartX(int startX) {
-		//this.setStartX(startX);
+
 		for (IShape shape: groupshapelist) {
 			shape.setStartX(shape.getStartX() + startX - this.startX);
 		}
@@ -181,7 +172,7 @@ public class GroupShapes implements IShape {
 		for (IShape shape: groupshapelist) {
 			shape.setStartY(shape.getStartY() + startY - this.startY);
 		}
-//		this.setStartY(startY);
+
 		this.startY = startY;
 	}
 
@@ -190,7 +181,7 @@ public class GroupShapes implements IShape {
 		for (IShape shape: groupshapelist) {
 			shape.setEndX(shape.getEndX() + endX - this.endX);
 		}
-//		this.setEndX(endX);
+
 		this.endX = endX;
 		
 	}
@@ -200,7 +191,7 @@ public class GroupShapes implements IShape {
 		for (IShape shape: groupshapelist) {
 			shape.setEndY(shape.getEndY() + endY - this.endY);
 		}
-//		this.setEndY(endY);
+
 		this.endY = endY;
 	}
 

@@ -40,7 +40,7 @@ public class GroupShapesCommand implements IUndoable, ICommand {
 	public void redo() {
 		selectlist.clear();
 		for (IShape ungrouped: StaticShapeList.unGroupShapeList.returnShapeList()) {
-			//mainlist.remove(ungrouped);
+
 			selectlist.add(ungrouped);
 		}
 		new GroupShapes().group();

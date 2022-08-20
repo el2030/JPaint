@@ -16,13 +16,13 @@ public class Triangle implements IDraw {
 	    int width = c.width();
 		
 		Polygon polygon = new Polygon();
-		polygon.addPoint(c.endX() - width * 2 , c.endY());//bottom-left
-		polygon.addPoint(c.endX(), c.endY());//bottom-right
-		polygon.addPoint(c.startX(), c.startY());//Top
+		polygon.addPoint(c.endX() - width * 2 , c.endY());
+		polygon.addPoint(c.endX(), c.endY());
+		polygon.addPoint(c.startX(), c.startY());
 		
 		IColorStrategy color = null; 
 		
-        switch(activeShapeShadingType) { //shade rectangle depending on the current shadingType
+        switch(activeShapeShadingType) { 
         
    
         case FILLED_IN:   	

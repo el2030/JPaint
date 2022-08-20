@@ -27,15 +27,18 @@ public class MoveShapeCommand implements IUndoable, ICommand{
 				.setendX(endX)
 				.setendY(endY)
 				.makeShape();
+			
+			
 	
-	}
+		}
 	
 	public void execute() {
 		
+
 		ShapeMovement.move(selectedshapes, shape);
-		ShapeMovement.move(displaySelected, shape);
-		PaintCanvas.getInstance().repaint();
+		ShapeMovement.move(displaySelected, shape);	
 		CommandHistory.add(this);
+		PaintCanvas.getInstance().repaint();
 		
 	}
 	
