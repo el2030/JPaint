@@ -1,6 +1,8 @@
 package model;
 
 import java.awt.Graphics2D;
+
+import model.interfaces.IColorStrategy;
 import view.interfaces.IShape;
 
 
@@ -11,13 +13,13 @@ public class Shape implements IShape {
 	public int endX;
 	public int endY;
 	public ShapeType activeShapeType;
-    public ShapeColor activePrimaryColor;
-    public ShapeColor activeSecondaryColor;
+    public IColorStrategy activePrimaryColor;
+    public IColorStrategy activeSecondaryColor;
     public ShapeShadingType activeShapeShadingType;
 
     
     
-    public Shape (int startX, int startY, int endX, int endY, ShapeType activeShapeType, ShapeColor activePrimaryColor, ShapeColor activeSecondaryColor, ShapeShadingType activeShapeShadingType) {
+    public Shape (int startX, int startY, int endX, int endY, ShapeType activeShapeType, IColorStrategy activePrimaryColor, IColorStrategy activeSecondaryColor, ShapeShadingType activeShapeShadingType) {
     	
     	this.startX = startX;
 		this.startY = startY;
@@ -85,13 +87,13 @@ public class Shape implements IShape {
 	}
 
 	@Override
-	public ShapeColor getActivePrimaryColor() {
+	public IColorStrategy getActivePrimaryColor() {
 		
 		return activePrimaryColor;
 	}
 
 	@Override
-	public ShapeColor getActiveSecondaryColor() {
+	public IColorStrategy getActiveSecondaryColor() {
 		
 		return activeSecondaryColor;
 	}

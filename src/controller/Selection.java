@@ -12,6 +12,7 @@ import model.ShapeColor;
 import model.ShapeShadingType;
 import model.ShapeType;
 import model.Triangle;
+import model.interfaces.IColorStrategy;
 import view.gui.PaintCanvas;
 import view.interfaces.IShape;
 
@@ -86,14 +87,14 @@ public class Selection implements IShape {
 
 
 	@Override
-	public ShapeColor getActivePrimaryColor() {
+	public IColorStrategy getActivePrimaryColor() {
 		
 		return null;
 	}
 
 
 	@Override
-	public ShapeColor getActiveSecondaryColor() {
+	public IColorStrategy getActiveSecondaryColor() {
 		
 		return null;
 	}

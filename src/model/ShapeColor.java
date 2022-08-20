@@ -4,7 +4,7 @@ import java.awt.*;
 
 import model.interfaces.IColorStrategy;
 
-//Strategy Pattern
+
 public enum ShapeColor implements IColorStrategy {
 	
     BLACK {
@@ -85,11 +85,6 @@ public enum ShapeColor implements IColorStrategy {
             return Color.YELLOW;
         }
     };
-	
-//enumeration literal mapping using the strategy pattern
-	
-//Source: https://www.baeldung.com/a-guide-to-java-enums, https://www.geeksforgeeks.org/how-to-implement-a-strategy-pattern-using-enum-in-java/
-	//example: https://dev.to/masreis/strategy-design-pattern-with-java-enum-1am0
 
 	public abstract Color getColor();
 

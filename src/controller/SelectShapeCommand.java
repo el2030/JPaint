@@ -52,12 +52,7 @@ public class SelectShapeCommand implements ICommand {
 			StaticShapeList.displaySelected.clear();
 			PaintCanvas.getInstance().repaint();
 		}
-        
-
-
-        	
-        	
-        	
+          	
         
 	}
 	

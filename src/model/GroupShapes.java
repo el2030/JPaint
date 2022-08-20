@@ -1,11 +1,9 @@
 package model;
 
-import java.awt.BasicStroke;
-import java.awt.Graphics2D;
-import java.awt.Stroke;
-import java.util.ArrayList;
 
-import controller.DeleteCommand;
+import java.awt.Graphics2D;
+import java.util.ArrayList;
+import model.interfaces.IColorStrategy;
 import view.gui.PaintCanvas;
 import view.interfaces.IShape;
 
@@ -131,7 +129,7 @@ public class GroupShapes implements IShape {
 	}
 
 	@Override
-	public ShapeColor getActiveSecondaryColor() {
+	public IColorStrategy getActiveSecondaryColor() {
 
 		return ShapeColor.WHITE;
 	
@@ -144,7 +142,7 @@ public class GroupShapes implements IShape {
 	}
 
 	@Override
-	public ShapeColor getActivePrimaryColor() {
+	public IColorStrategy getActivePrimaryColor() {
 		
 
 		return null;

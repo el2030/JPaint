@@ -9,7 +9,7 @@ public class Ellipse {
 
 	
 	
-	public void draw(int startX, int startY, int endX, int endY, ShapeShadingType activeShapeShadingType, ShapeColor activePrimaryColor, ShapeColor activeSecondaryColor, Graphics2D graphics2d) {
+	public void draw(int startX, int startY, int endX, int endY, ShapeShadingType activeShapeShadingType, IColorStrategy activePrimaryColor, IColorStrategy activeSecondaryColor, Graphics2D graphics2d) {
 		
 		//Graphics2D graphics2d = paintCanvas.getGraphics2D();
 		

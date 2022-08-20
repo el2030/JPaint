@@ -5,6 +5,7 @@ import java.awt.Graphics2D;
 import model.ShapeColor;
 import model.ShapeShadingType;
 import model.ShapeType;
+import model.interfaces.IColorStrategy;
 
 public interface IShape {
 
@@ -12,9 +13,9 @@ public interface IShape {
 	int startY = 0;
 	int endX = 0;
 	int endY = 0;
-	ShapeColor getActiveSecondaryColor();
+	IColorStrategy getActiveSecondaryColor();
 	ShapeShadingType getActiveShapeShadingType();
-	ShapeColor getActivePrimaryColor();
+	IColorStrategy getActivePrimaryColor();
 	ShapeType getActiveShapeType();
 	void unGroup();
 	void draw(Graphics2D graphics2d);
