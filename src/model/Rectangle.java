@@ -54,6 +54,7 @@ public class Rectangle implements IDraw {
                     BasicStroke.JOIN_MITER, 2.0f, dash, 10.0f);
             graphics2d.setStroke(dashed);
             graphics2d.drawRect(c.startX(), c.startY(), width, height);
+            break;
         	
         	
         default:

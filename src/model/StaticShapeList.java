@@ -1,8 +1,5 @@
 package model;
 
-import view.interfaces.IObserver;
-import view.interfaces.ISubject;
-
 public class StaticShapeList{
 
 	public static ShapeList mainShapeList = new ShapeList();

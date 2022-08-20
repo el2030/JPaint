@@ -2,16 +2,11 @@ package controller;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
-import model.ShapeList;
-import model.StaticShapeList;
-import model.Collision;
 import model.Point;
-import model.Shape;
-import model.Calculator;
 import model.persistence.ApplicationState;
+import view.interfaces.ICommand;
 import view.interfaces.PaintCanvasBase;
-import model.Collision;
+
 
 
 public class Mouse extends MouseAdapter {
@@ -41,21 +36,26 @@ public class Mouse extends MouseAdapter {
 		pReleased =  new Point(0, 0);
 		pReleased.setX(e.getX());
 		pReleased.setY(e.getY());
-		
-		ShapeCommand newShapeCmd = new ShapeCommand(pPressed, pReleased, appState);
+		ICommand command;
 		
 		switch(appState.getActiveMouseMode().toString()) {
 
 		case "MOVE":
-			newShapeCmd.moveCommand(); 
+
+			command = new MoveShapeCommand(pPressed.getX(), pPressed.getY(), pReleased.getX(), pReleased.getY());
+			command.execute();
 			break;
 		
 		case "SELECT": 
-			newShapeCmd.SelectShapeCommand(); 
+
+			command = new SelectShapeCommand(pPressed.getX(), pPressed.getY(), pReleased.getX(), pReleased.getY());
+			command.execute();
 			break;
 			
 		case "DRAW":
-			newShapeCmd.createShapeCommand(); 
+
+			command = new AddShapeCommand(pPressed.getX(), pPressed.getY(), pReleased.getX(), pReleased.getY(), appState);
+			command.execute();
 			break;
 			
 		default: break;

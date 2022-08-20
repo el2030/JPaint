@@ -58,7 +58,8 @@ public class Triangle implements IDraw {
             Stroke dashed = new BasicStroke(3.0f, BasicStroke.CAP_BUTT,
                     BasicStroke.JOIN_MITER, 2.0f, dash, 10.0f);
             graphics2d.setStroke(dashed);
-            graphics2d.drawPolygon(polygon);	
+            graphics2d.drawPolygon(polygon);
+            break;
         	
         default:
         	break;

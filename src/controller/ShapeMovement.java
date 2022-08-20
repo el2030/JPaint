@@ -1,13 +1,9 @@
 package controller;
 
 import java.util.ArrayList;
-import java.util.List;
-
 import model.Calculator;
-import model.Shape;
-import view.interfaces.IObserver;
 import view.interfaces.IShape;
-import view.interfaces.ISubject;
+
 
 
 public class ShapeMovement {
