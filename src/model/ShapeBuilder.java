@@ -1,9 +1,8 @@
 package model;
 
 import model.interfaces.IBuilder;
+import model.interfaces.IColorStrategy;
 import model.persistence.ApplicationState;
-import view.gui.PaintCanvas;
-import view.interfaces.PaintCanvasBase;
 
 public class ShapeBuilder implements IBuilder {
 
@@ -12,8 +11,8 @@ public class ShapeBuilder implements IBuilder {
 	private int endX;
 	private int endY;
 	private ShapeType activeShapeType;
-    private ShapeColor activePrimaryColor;
-    private ShapeColor activeSecondaryColor;
+    private IColorStrategy activePrimaryColor;
+    private IColorStrategy activeSecondaryColor;
     private ShapeShadingType activeShapeShadingType;
 	ApplicationState appState;
 	
@@ -42,12 +41,12 @@ public class ShapeBuilder implements IBuilder {
 		return this;
 	}
 	
-	public ShapeBuilder setActivePrimaryColor (ShapeColor activePrimaryColor) {
+	public ShapeBuilder setActivePrimaryColor (IColorStrategy activePrimaryColor) {
 		this.activePrimaryColor = activePrimaryColor;
 		return this;
 	}
 	
-	public ShapeBuilder setActiveSecondaryColor (ShapeColor activeSecondaryColor) {
+	public ShapeBuilder setActiveSecondaryColor (IColorStrategy activeSecondaryColor) {
 		this.activeSecondaryColor = activeSecondaryColor;
 		return this;
 	}

@@ -11,13 +11,6 @@ import view.interfaces.IGuiWindow;
 import view.interfaces.PaintCanvasBase;
 import view.interfaces.IUiModule;
 
-import java.awt.*;
-import java.util.Collection;
-import java.util.EnumMap;
-import java.awt.*;
-import java.awt.Point;
-import javax.swing.*;
-import java.awt.event.*;
 public class JPaint {
 
     public void run (){

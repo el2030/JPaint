@@ -29,7 +29,7 @@ public class UnGroupCommand implements IUndoable, ICommand {
 		selectlist.clear();
 		for (IShape ungrouped: StaticShapeList.unGroupShapeList.returnShapeList()) {
 			selectlist.add(ungrouped);
-			//StaticShapeList.mainShapeList.remove(ungrouped);
+
 		}
 		new GroupShapes().group();
 		

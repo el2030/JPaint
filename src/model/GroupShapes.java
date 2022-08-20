@@ -38,27 +38,24 @@ public class GroupShapes implements IShape {
 		}
 		this.getMinMax();
 		
-		//selectlist.clear();
-		//selectlist.add(this);
 		mainShapeList.add(this);
 		StaticShapeList.groupShapeList.add(this);
-		//this.draw(PaintCanvas.getInstance().getGraphics2D());
 		PaintCanvas.getInstance().repaint();
 	}
 	
 	@Override
 	public void unGroup() {
-		//selectlist.clear();
+
 		
 		for (IShape shape: groupshapelist) {
-			//shape.unGroup();
+		
 			mainShapeList.add(shape);
-			//selectlist.add(shape);
+	
 		}
 		mainShapeList.remove(this);	
-		//StaticShapeList.groupShapeList.remove(this);
+
 		PaintCanvas.getInstance().repaint();
-		//this.draw(PaintCanvas.getInstance().getGraphics2D());
+
 	}
 	
 	private ArrayList<IShape> returnShapeList() {
@@ -145,7 +142,7 @@ public class GroupShapes implements IShape {
 	public IColorStrategy getActivePrimaryColor() {
 		
 
-		return null;
+		return ShapeColor.WHITE;
 	}
 
 	@Override

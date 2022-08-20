@@ -13,8 +13,6 @@ import view.interfaces.ICommand;
 import view.interfaces.IShape;
 
 
-
-
 public class SelectShapeCommand implements ICommand {
 
 	ArrayList<IShape> shapelist = StaticShapeList.mainShapeList.returnShapeList();

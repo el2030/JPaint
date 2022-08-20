@@ -1,7 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-
 import view.interfaces.IShape;
 
 public class ShapeList {

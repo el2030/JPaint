@@ -8,7 +8,6 @@ public class RedoCommand implements ICommand {
 	public void execute() {
 		
 		CommandHistory.redo();
-		System.out.println("redo complete");
 		
 	}
 

@@ -1,10 +1,8 @@
 package controller;
 
-import java.awt.Graphics2D;
-import java.util.ArrayList;
 
+import java.util.ArrayList;
 import model.GroupShapes;
-import model.Shape;
 import model.StaticShapeList;
 import view.interfaces.ICommand;
 import view.interfaces.IShape;

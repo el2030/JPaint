@@ -1,7 +1,6 @@
 package controller;
 
 import java.util.ArrayList;
-import model.Shape;
 import model.ShapeList;
 import model.StaticShapeList;
 import view.gui.PaintCanvas;

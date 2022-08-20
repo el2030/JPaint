@@ -2,7 +2,6 @@ package model.interfaces;
 
 import model.Shape;
 import model.ShapeBuilder;
-import model.ShapeColor;
 import model.ShapeShadingType;
 import model.ShapeType;
 
@@ -17,9 +16,9 @@ public interface IBuilder {
 	
 	ShapeBuilder setActiveShapeType (ShapeType activeShapeType);
 	
-	ShapeBuilder setActivePrimaryColor (ShapeColor activePrimaryColor);
+	ShapeBuilder setActivePrimaryColor (IColorStrategy activePrimaryColor);
 	
-	ShapeBuilder setActiveSecondaryColor (ShapeColor activeSecondaryColor);
+	ShapeBuilder setActiveSecondaryColor (IColorStrategy activeSecondaryColor);
 	
     ShapeBuilder setActiveShapeShadingType (ShapeShadingType activeShapeShadingType);
 	Shape makeShape();

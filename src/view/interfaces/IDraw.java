@@ -1,8 +1,6 @@
 package view.interfaces;
 
 import java.awt.Graphics2D;
-
-import model.ShapeColor;
 import model.ShapeShadingType;
 import model.interfaces.IColorStrategy;
 

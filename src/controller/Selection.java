@@ -3,22 +3,15 @@ package controller;
 import java.awt.BasicStroke;
 import java.awt.Graphics2D;
 import java.awt.Stroke;
-
 import model.Calculator;
-import model.Ellipse;
-import model.Rectangle;
-import model.Shape;
-import model.ShapeColor;
 import model.ShapeShadingType;
 import model.ShapeType;
-import model.Triangle;
 import model.interfaces.IColorStrategy;
-import view.gui.PaintCanvas;
 import view.interfaces.IShape;
 
 public class Selection implements IShape {
+	
 	private final IShape shape;
-	//Graphics2D graphics2d = PaintCanvas.getInstance().getGraphics2D();
 	
 	public Selection(IShape shape) {
 		this.shape = shape;
@@ -31,22 +24,11 @@ public class Selection implements IShape {
 	    int width = c.width();
 		int height = c.height();
 		
-//		switch(shape.getActiveShapeType().toString()) {
-//		case "RECTANGLE":
-        	float[] dash = {5.0f, 5.0f, 5.0f};
-            Stroke dashed = new BasicStroke(3.0f, BasicStroke.CAP_BUTT,
-                    BasicStroke.JOIN_MITER, 2.0f, dash, 10.0f);
-            graphics2d.setStroke(dashed);
-            graphics2d.drawRect(c.startX() - 5, c.startY() - 5, width + 10, height + 10);
-//			 break;
-//		case "TRIANGLE": 
-//			 new Triangle().draw(startX, startY, endX, endY, activeShapeShadingType, activePrimaryColor, activeSecondaryColor, graphics2d);
-//			 break;
-//		case "ELLIPSE" :
-//			 new Ellipse().draw(startX, startY, endX, endY, activeShapeShadingType, activePrimaryColor, activeSecondaryColor, graphics2d);
-//			 break;
-//		default:  break;
-//		}
+        float[] dash = {5.0f, 5.0f, 5.0f};
+        Stroke dashed = new BasicStroke(3.0f, BasicStroke.CAP_BUTT,
+        BasicStroke.JOIN_MITER, 2.0f, dash, 10.0f);
+        graphics2d.setStroke(dashed);
+        graphics2d.drawRect(c.startX() - 5, c.startY() - 5, width + 10, height + 10);
 		
 	}
 

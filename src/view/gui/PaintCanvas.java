@@ -39,9 +39,6 @@ public class PaintCanvas extends PaintCanvasBase {
 	        	shape.draw(graphics2d);
 	        }
         }
-
-        // Draw all shapes here
-
   
     }
     

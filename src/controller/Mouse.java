@@ -16,7 +16,7 @@ public class Mouse extends MouseAdapter {
 	private ApplicationState appState;
 	PaintCanvasBase paintCanvas;
 
-	public Mouse(PaintCanvasBase paintCanvas, ApplicationState appState) { //constructor
+	public Mouse(PaintCanvasBase paintCanvas, ApplicationState appState) {
 		this.appState = appState;
 		this.paintCanvas = paintCanvas;
 

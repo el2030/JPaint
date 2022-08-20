@@ -9,7 +9,6 @@ public class UndoCommand implements ICommand {
 	public void execute() {
 		
 		CommandHistory.undo();
-		System.out.println("undo complete");
 		
 	}
 

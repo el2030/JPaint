@@ -1,8 +1,6 @@
 # JPaint
 Java Paint Application
 
-https://github.com/el2030/JPaint
-
 Bugs:
 
 1. Clicking redo() after group will result in multiple selectable objects.

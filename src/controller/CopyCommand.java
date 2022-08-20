@@ -1,8 +1,6 @@
 package controller;
 
 import java.util.ArrayList;
-
-import model.Shape;
 import model.StaticShapeList;
 import view.interfaces.IShape;
 

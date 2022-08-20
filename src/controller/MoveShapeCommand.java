@@ -9,7 +9,6 @@ import view.gui.PaintCanvas;
 import view.interfaces.ICommand;
 import view.interfaces.IShape;
 import view.interfaces.IUndoable;
-import view.interfaces.PaintCanvasBase;
 
 public class MoveShapeCommand implements IUndoable, ICommand{
 

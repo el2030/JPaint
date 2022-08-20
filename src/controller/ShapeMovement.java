@@ -8,15 +8,6 @@ import view.interfaces.IShape;
 
 public class ShapeMovement {
 	
-//	private final List<IObserver> movementObservers = new ArrayList<>();
-//	ArrayList<IShape> selectedshapes;
-//	IShape shape;
-	
-//	public ShapeMovement(ArrayList<IShape> selectedshapes, IShape shape) {
-//		this.selectedshapes = selectedshapes;
-//		this.shape = shape;
-//	}
-//	
 	public static void move(ArrayList<IShape> selectedshapes, IShape shape) {
 		
 		Calculator calculate = new Calculator(shape.getStartX(), shape.getEndX(), shape.getStartY(), shape.getEndY());
@@ -27,7 +18,7 @@ public class ShapeMovement {
 			selectedshape.setEndY(selectedshape.getEndY() + calculate.deltaY());
 
 		}
-//		notifySpacebarObservers();
+
 	}
 	
 	public static void undoMove(ArrayList<IShape> selectedshapes, IShape shape) {
@@ -39,23 +30,7 @@ public class ShapeMovement {
 			selectedshape.setEndX(selectedshape.getEndX() - calculate.deltaX());
 			selectedshape.setEndY(selectedshape.getEndY() - calculate.deltaY());
 		}
-//		notifySpacebarObservers();
+
 	}
-
-//	@Override
-//	public void registerObserver(IObserver o) {
-//		
-//		movementObservers.add(o);
-//		
-//	}
-//	
-//	void notifySpacebarObservers(){
-//		
-//        for (var movementObserver : movementObservers){
-//        	movementObserver.update();
-//        	
-//        }
-//    }
-
 
 }

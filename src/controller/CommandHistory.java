@@ -1,7 +1,6 @@
 package controller;
-import java.util.Stack;
 
-import model.Shape;
+import java.util.Stack;
 import view.interfaces.IUndoable;
 
 public class CommandHistory {
