@@ -32,8 +32,6 @@ public class ShapeList {
 	public void remove(IShape shape) {
 		
 		shapelist.remove(shape);
-		System.out.println("shape removed");
-		System.out.println(shapeCount());
 	}
 	
 	public void clear() {
